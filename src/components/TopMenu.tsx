@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const TopMenu: React.FC = () => {
-  return (
-    <div>Top Menu</div>
-  );
-}
+  return <div className="d-flex justify-content-end">Top Menu</div>;
+};
 
 export default TopMenu;
