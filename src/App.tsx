@@ -12,7 +12,9 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Header />
       <NavigationMenu />
-      <Container style={{ marginLeft: 200 }}>
+      <Container  
+        style={{ marginLeft: 200, padding: "60px 100px" }}
+      >
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
         corporis facere, sed eius quibusdam veritatis est ab, exercitationem in
         sunt eligendi sit, neque deserunt velit necessitatibus praesentium ipsum

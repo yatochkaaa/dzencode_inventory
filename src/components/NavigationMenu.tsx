@@ -7,8 +7,8 @@ const NavigationMenu: React.FC = () => {
   return (
     <Navbar
       bg="light"
-      className="position-fixed left-0 shadow align-items-start"
-      style={{ height: "100vh", width: 200, left: 0, top: 0, marginTop: 124 }}
+      className="position-fixed left-0 z-1 shadow align-items-start"
+      style={{ height: "100vh", width: 200, left: 0, top: 0, paddingTop: 124 }}
     >
       <Container className="d-flex flex-column">
         <div className="position-relative mb-5">
