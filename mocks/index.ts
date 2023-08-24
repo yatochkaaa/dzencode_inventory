@@ -28,7 +28,7 @@ export const orders = [
   },
 ];
 
-const products = [
+export const products = [
   {
     id: 1,
     serialNumber: 1234,

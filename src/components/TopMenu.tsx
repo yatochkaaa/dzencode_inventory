@@ -9,7 +9,9 @@ const TopMenu: React.FC = () => {
   const [activeSessions, setActiveSessions] = React.useState(0);
 
   React.useEffect(() => {
-    const socket = io("http://localhost:3001");
+    const socket = io("http://localhost:3001", {
+      transports: ["websocket"],
+    });
 
     socket.on("activeSessionsUpdate", (count: number) => {
       setActiveSessions(count);
