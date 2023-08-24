@@ -1,6 +1,6 @@
 interface Guarantee {
-  start: Date;
-  end: Date;
+  start: string;
+  end: string;
 }
 
 interface Price {
@@ -20,5 +20,5 @@ export interface Product {
   guarantee: Guarantee;
   price: Price[];
   order: number;
-  date: Date;
+  date: string;
 }

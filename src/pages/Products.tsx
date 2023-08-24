@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import ProductList from "../components/ProductList";
 
 const Products: React.FC = () => {
-  return (
-    <div>Products</div>
-  );
-}
+  return <ProductList />;
+};
 
 export default Products;
