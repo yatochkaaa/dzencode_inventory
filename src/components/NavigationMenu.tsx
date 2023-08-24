@@ -1,7 +1,8 @@
 import React from "react";
-import avatar from "../images/avatar.png";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import { GearFill } from "react-bootstrap-icons";
+import avatar from "../images/avatar.png";
+import { ROUTE } from "../utils/consts";
 
 const NavigationMenu: React.FC = () => {
   return (
@@ -33,19 +34,19 @@ const NavigationMenu: React.FC = () => {
         </div>
 
         <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">
-          <Nav.Link href="/home" className="nav-link">
+          <Nav.Link href={ROUTE.ORDERS} className="nav-link">
             Приход
           </Nav.Link>
-          <Nav.Link href="/groups" className="nav-link">
+          <Nav.Link href={ROUTE.GROUPS} className="nav-link">
             Группы
           </Nav.Link>
-          <Nav.Link href="/products" className="nav-link">
+          <Nav.Link href={ROUTE.PRODUCTS} className="nav-link">
             Продукты
           </Nav.Link>
-          <Nav.Link href="/users" className="nav-link">
+          <Nav.Link href={ROUTE.USERS} className="nav-link">
             Пользователи
           </Nav.Link>
-          <Nav.Link href="/settings" className="nav-link">
+          <Nav.Link href={ROUTE.SETTINGS} className="nav-link">
             Настройки
           </Nav.Link>
         </Nav>
