@@ -1,8 +1,25 @@
 import React from "react";
-import ProductList from "../components/ProductList";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../store";
+import { fetchProductsAction } from "../store/actions";
 
 const Products: React.FC = () => {
-  return <ProductList />;
+  const dispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products.products);
+
+  React.useEffect(() => {
+    if (products.length === 0) {
+      fetchProductsAction(dispatch);
+    }
+  }, [dispatch, products]);
+
+  return (
+    <div>
+      {products.map((product) => (
+        <div key={product.id}>{product.title}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Products;
