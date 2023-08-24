@@ -38,19 +38,25 @@ const NavigationMenu: React.FC = () => {
         </div>
 
         <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">
-          <Nav.Link href={ROUTE.ORDERS} className="nav-link">
+          <Nav.Link onClick={() => navigate(ROUTE.ORDERS)} className="nav-link">
             Приход
           </Nav.Link>
-          <Nav.Link href={ROUTE.GROUPS} className="nav-link">
+          <Nav.Link onClick={() => navigate(ROUTE.GROUPS)} className="nav-link">
             Группы
           </Nav.Link>
-          <Nav.Link href={ROUTE.PRODUCTS} className="nav-link">
+          <Nav.Link
+            onClick={() => navigate(ROUTE.PRODUCTS)}
+            className="nav-link"
+          >
             Продукты
           </Nav.Link>
-          <Nav.Link href={ROUTE.USERS} className="nav-link">
+          <Nav.Link onClick={() => navigate(ROUTE.USERS)} className="nav-link">
             Пользователи
           </Nav.Link>
-          <Nav.Link href={ROUTE.SETTINGS} className="nav-link">
+          <Nav.Link
+            onClick={() => navigate(ROUTE.SETTINGS)}
+            className="nav-link"
+          >
             Настройки
           </Nav.Link>
         </Nav>
