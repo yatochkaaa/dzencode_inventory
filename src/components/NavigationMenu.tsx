@@ -1,10 +1,13 @@
 import React from "react";
-import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { GearFill } from "react-bootstrap-icons";
+import { Container, Nav, Navbar, Image, Button } from "react-bootstrap";
 import avatar from "../images/avatar.png";
 import { ROUTE } from "../utils/consts";
 
 const NavigationMenu: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Navbar
       bg="light"
@@ -20,8 +23,9 @@ const NavigationMenu: React.FC = () => {
             src={avatar}
             roundedCircle
           />
-          <div
-            className="position-absolute d-flex justify-content-center align-items-center bottom-0 end-0 shadow"
+          <Button
+            onClick={() => navigate(ROUTE.SETTINGS)}
+            className="position-absolute bottom-0 end-0 d-flex justify-content-center align-items-center border-0 shadow"
             style={{
               width: 36,
               height: 36,
@@ -29,8 +33,8 @@ const NavigationMenu: React.FC = () => {
               borderRadius: "50%",
             }}
           >
-            <GearFill width={14} height={14} fill="grey" />
-          </div>
+            <GearFill fill="grey" />
+          </Button>
         </div>
 
         <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">
