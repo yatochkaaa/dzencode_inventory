@@ -8,7 +8,13 @@ export const formattedPrice = (price: number) => {
     " "
   );
 
+  let formattedDecimalPart = decimalPart;
+
+  if (integerPart.length >= 4) {
+    formattedDecimalPart = ` ${decimalPart}`;
+  }
+
   return decimalPart
-    ? `${formattedIntegerPart}. ${decimalPart}`
+    ? `${formattedIntegerPart}.${formattedDecimalPart}`
     : formattedIntegerPart;
 };

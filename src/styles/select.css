@@ -1,0 +1,16 @@
+.select {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  width: 100%;
+}
+
+.select__title {
+  color: var(--secondary-text-color);
+}
+
+.select__value {
+  max-width: 360px;
+  height: 36px;
+  margin-left: 12px;
+}

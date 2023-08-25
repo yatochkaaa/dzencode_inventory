@@ -1,6 +1,7 @@
 @import './_vars.css';
 @import './header.css';
 @import './page.css';
+@import './select.css';
 @import './table.css';
 
 body {
