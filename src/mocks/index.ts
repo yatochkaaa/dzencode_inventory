@@ -2,28 +2,28 @@ export const orders = [
   {
     id: 1,
     title: "Длинное предлинное длиннючее название прихода",
-    date: "2017-06-29 12:09:33",
+    date: "2017-04-06 12:09:33",
     description: "desc",
     get products() {
-      return products;
+      return [products[0], products[2], products[3]];
     },
   },
   {
     id: 2,
     title: "Приход",
-    date: "2017-06-29 12:09:33",
+    date: "2017-09-11 12:09:33",
     description: "desc",
     get products() {
-      return products;
+      return [products[1]];
     },
   },
   {
     id: 3,
-    title: "Среднее название прихода",
-    date: "2017-06-29 12:09:33",
+    title: "Длинное название прихода",
+    date: "2017-02-02 12:09:33",
     description: "desc",
     get products() {
-      return products;
+      return [products[2], products[4]];
     },
   },
 ];

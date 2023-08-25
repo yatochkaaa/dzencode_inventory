@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import { Trash3Fill } from "react-bootstrap-icons";
 import { Order, Product } from "../utils/types";
 import { formattedPrice, formattedGuaranteeDate } from "../utils/functions";
@@ -49,12 +49,10 @@ const ProductItem: React.FC<Props> = ({ product, orders }) => {
         </div>
       </td>
 
-      <td className="table__condition">{product.isNew ? "новый" : "Б / У"}</td>
-
       <td>
         <div className="table__price">
           <div className="table__additionPrice">
-            {formattedPrice(product.price[0].value)} {product.price[0].symbol}
+            {formattedPrice(product.price[0].value)} $
           </div>
           {formattedPrice(product.price[1].value)}{" "}
           <span className="table__currency">{product.price[1].symbol}</span>
@@ -66,9 +64,9 @@ const ProductItem: React.FC<Props> = ({ product, orders }) => {
       </td>
 
       <td>
-        <Button className="border-0 bg-white">
+        <button className="table__trash">
           <Trash3Fill fill="#586c7c" />
-        </Button>
+        </button>
       </td>
     </tr>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GearFill } from "react-bootstrap-icons";
-import { Container, Nav, Navbar, Image, Button } from "react-bootstrap";
+import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import avatar from "../images/avatar.png";
 import { ROUTE, CATEGORY } from "../utils/consts";
 
@@ -16,25 +16,13 @@ const NavigationMenu: React.FC = () => {
     >
       <Container className="d-flex flex-column">
         <div className="position-relative mb-5">
-          <Image
-            width={100}
-            height={100}
-            alt="avatar"
-            src={avatar}
-            roundedCircle
-          />
-          <Button
+          <Image className="menu__image" alt="avatar" src={avatar} />
+          <button
             onClick={() => navigate(ROUTE.SETTINGS)}
-            className="position-absolute bottom-0 end-0 d-flex justify-content-center align-items-center border-0 shadow"
-            style={{
-              width: 36,
-              height: 36,
-              background: "white",
-              borderRadius: "50%",
-            }}
+            className="menu__imageButton shadow"
           >
             <GearFill fill="#586c7c" />
-          </Button>
+          </button>
         </div>
 
         <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">

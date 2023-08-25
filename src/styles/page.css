@@ -6,6 +6,5 @@
 
 .page__info {
   display: flex;
-  margin-bottom: 48px;
   white-space: nowrap;
 }

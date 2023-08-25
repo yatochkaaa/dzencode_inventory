@@ -2,7 +2,6 @@ import React from "react";
 import { RootState } from "../store";
 import { useSelector } from "react-redux";
 import ProductItem from "../components/ProductItem";
-import CategoryTitle from "../components/PageTitle";
 import { CATEGORY } from "../utils/consts";
 import { Form, Table } from "react-bootstrap";
 
@@ -26,10 +25,10 @@ const Products: React.FC = () => {
   return (
     <div className="page">
       <div className="page__info">
-        <CategoryTitle
-          categoryName={CATEGORY.PRODUCTS}
-          categoryLength={products.length}
-        />
+        <div className="page__title">
+          {CATEGORY.PRODUCTS} / {filteredProducts.length}
+        </div>
+
         <div className="select">
           <span className="select__title">Тип:</span>
           <Form.Select

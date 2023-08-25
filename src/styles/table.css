@@ -68,6 +68,21 @@
   font-weight: 700;
 }
 
+.table__date {
+  position: relative;
+  width: min-content;
+  font-size: 14px;
+}
+
+.table__additionDate {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--secondary-text-color);
+}
+
 .table__timeRange {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -86,7 +101,7 @@
 
 .table__additionPrice {
   position: absolute;
-  top: -12px;
+  top: -50%;
   left: 0;
   font-size: 10px;
   color: var(--secondary-text-color);
@@ -100,4 +115,37 @@
   width: max-content;
   max-width: 300px;
   white-space: normal;
+}
+
+.table__trash {
+  border: 0;
+  background: #fff;
+  transition: var(--transition);
+}
+
+.table__trash:hover, .table__trash:active {
+  transform: scale(1.5);
+}
+
+.table__menu {
+  background-color: transparent;
+  border: 1px solid var(--card-border-color);
+  border-radius: 50%;
+  padding: 6px 11px;
+  transition: var(--transition);
+  margin-right: 16px;
+}
+
+.table__menu:hover {
+  transform: scale(1.2);
+}
+
+.table__productsAmount {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.table__productsAmountTitle {
+  font-size: 14px;
+  color: var(--secondary-text-color);
 }

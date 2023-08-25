@@ -27,14 +27,23 @@ const TopMenu: React.FC = () => {
     };
   }, []);
 
-  const formattedDate = format(dateTime, "d LLL, yyyy", { locale: ru });
+  const formattedTopMenuDate = (date: Date) => {
+    const formattedDate = format(date, "dd MMM yyyy", { locale: ru });
+    const parts = formattedDate.split(" ");
+
+    parts[1] = parts[1].charAt(0).toUpperCase() + parts[1].slice(1);
+    parts[1] = parts[1].replace(".", ",");
+
+    return parts.join(" ");
+  };
+
   const formattedTime = format(dateTime, "HH:mm");
 
   return (
     <div className="d-flex flex-column align-items-end">
       <div>
         <div className="d-flex align-items-center">
-          <div className="me-4">{formattedDate}</div>
+          <div className="me-4">{formattedTopMenuDate(dateTime)}</div>
           <Clock className="me-2" fill="#80b444" />
           <div>{formattedTime}</div>
         </div>

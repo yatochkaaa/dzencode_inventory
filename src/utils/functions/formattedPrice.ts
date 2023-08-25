@@ -10,11 +10,11 @@ export const formattedPrice = (price: number) => {
 
   let formattedDecimalPart = decimalPart;
 
-  if (integerPart.length >= 4) {
-    formattedDecimalPart = ` ${decimalPart}`;
+  if (parseInt(integerPart) >= 1000) {
+    formattedDecimalPart = ` ${decimalPart.substring(0, 2)}`;
   }
 
-  return decimalPart
+  return formattedDecimalPart
     ? `${formattedIntegerPart}.${formattedDecimalPart}`
     : formattedIntegerPart;
 };
