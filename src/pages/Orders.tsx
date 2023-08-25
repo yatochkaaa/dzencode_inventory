@@ -1,23 +1,25 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { fetchOrdersAction } from "../store/actions";
+import CategoryTitle from "../components/PageTitle";
+import { CATEGORY } from "../utils/consts";
+import { Table } from "react-bootstrap";
 
 const Orders: React.FC = () => {
-  const dispatch = useDispatch();
   const orders = useSelector((state: RootState) => state.orders.orders);
 
-  React.useEffect(() => {
-    if (orders.length === 0) {
-      fetchOrdersAction(dispatch);
-    }
-  }, [dispatch, orders]);
-
   return (
-    <div>
-      {orders.map((order) => (
-        <div key={order.id}>{order.title}</div>
-      ))}
+    <div className="page">
+      <CategoryTitle
+        categoryName={CATEGORY.ORDERS}
+        categoryLength={orders.length}
+      />
+
+      <Table className="table">
+        {orders.map((order) => (
+          <div key={order.id}>{order.title}</div>
+        ))}
+      </Table>
     </div>
   );
 };

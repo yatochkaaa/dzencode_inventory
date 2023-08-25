@@ -1,8 +1,18 @@
+@import './_vars.css';
+@import './header.css';
+@import './page.css';
+@import './table.css';
+
+body {
+  color: var(--main-text-color);
+  background-color: var(--bg-color);
+}
+
 .nav-link { 
   border-bottom: 4px solid transparent;
-  transition: all linear 300ms;
+  transition: var(--transition);
 }
 
 .nav-link:hover {
-  border-color: green;
+  border-color: var(--primary-color);
 }

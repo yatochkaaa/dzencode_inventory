@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { GearFill } from "react-bootstrap-icons";
 import { Container, Nav, Navbar, Image, Button } from "react-bootstrap";
 import avatar from "../images/avatar.png";
-import { ROUTE } from "../utils/consts";
+import { ROUTE, CATEGORY } from "../utils/consts";
 
 const NavigationMenu: React.FC = () => {
   const navigate = useNavigate();
@@ -33,31 +33,31 @@ const NavigationMenu: React.FC = () => {
               borderRadius: "50%",
             }}
           >
-            <GearFill fill="grey" />
+            <GearFill fill="#586c7c" />
           </Button>
         </div>
 
         <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">
           <Nav.Link onClick={() => navigate(ROUTE.ORDERS)} className="nav-link">
-            Приход
+            {CATEGORY.ORDERS}
           </Nav.Link>
           <Nav.Link onClick={() => navigate(ROUTE.GROUPS)} className="nav-link">
-            Группы
+            {CATEGORY.GROUPS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.PRODUCTS)}
             className="nav-link"
           >
-            Продукты
+            {CATEGORY.PRODUCTS}
           </Nav.Link>
           <Nav.Link onClick={() => navigate(ROUTE.USERS)} className="nav-link">
-            Пользователи
+            {CATEGORY.USERS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.SETTINGS)}
             className="nav-link"
           >
-            Настройки
+            {CATEGORY.SETTINGS}
           </Nav.Link>
         </Nav>
       </Container>

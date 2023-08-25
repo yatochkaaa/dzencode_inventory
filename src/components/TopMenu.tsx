@@ -35,7 +35,7 @@ const TopMenu: React.FC = () => {
       <div>
         <div className="d-flex align-items-center">
           <div className="me-4">{formattedDate}</div>
-          <Clock className="me-2" fill="green" />
+          <Clock className="me-2" fill="#80b444" />
           <div>{formattedTime}</div>
         </div>
         <div>Активные сессии: {activeSessions}</div>

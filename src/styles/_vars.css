@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #80b444;
+  --main-text-color: #303c44;
+  --secondary-text-color: #98a4ac;
+  --status-color: #d0dc3c;
+  --bg-color: #f0f3f5;
+  --card-border-color: #dee2e6;
+
+  --border-radius: 6px;
+  --transition: all linear 300ms;
+}

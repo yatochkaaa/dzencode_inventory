@@ -1,0 +1,103 @@
+.table {
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  background: var(--bg-color);
+  border: 0;
+}
+
+.table td {
+  color: var(--main-text-color);
+  vertical-align: middle;
+  border-top: 1px solid var(--card-border-color);
+  border-bottom: 1px solid var(--card-border-color);
+  padding: 16px 24px;
+  white-space: nowrap;
+}
+
+.table td:first-child {
+  border-left: 1px solid var(--card-border-color);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.table td:last-child {
+  border-right: 1px solid var(--card-border-color);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.table__container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+.table__statusCircle {
+  height: 12px;
+  width: 12px;
+  background-color: var(--status-color);
+  border-radius: 50%;
+}
+
+.table__statusCircle--used {
+  background-color: var(--main-text-color);
+}
+
+.table__image {
+  width: 56px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.table__title {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  text-decoration: underline solid var(--secondary-text-color);
+}
+
+.table__specification {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--secondary-text-color);
+}
+
+.table__type {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.table__timeRange {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 14px;
+}
+
+.table__timeRangePrefix {
+  margin-right: 4px;
+  color: var(--secondary-text-color);;
+}
+
+.table__price {
+  position: relative;
+  font-size: 14px;
+}
+
+.table__additionPrice {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  font-size: 10px;
+  color: var(--secondary-text-color);
+}
+
+.table__currency {
+  font-size: 10px;
+}
+
+.table__order {
+  width: max-content;
+  max-width: 300px;
+  white-space: normal;
+}

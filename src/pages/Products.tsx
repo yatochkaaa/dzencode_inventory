@@ -1,23 +1,31 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store";
-import { fetchProductsAction } from "../store/actions";
+import { useSelector } from "react-redux";
+import ProductItem from "../components/ProductItem";
+import CategoryTitle from "../components/PageTitle";
+import { CATEGORY } from "../utils/consts";
+import { Table } from "react-bootstrap";
 
 const Products: React.FC = () => {
-  const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.products.products);
-
-  React.useEffect(() => {
-    if (products.length === 0) {
-      fetchProductsAction(dispatch);
-    }
-  }, [dispatch, products]);
+  const { products } = useSelector((state: RootState) => state.products);
+  const { orders } = useSelector((state: RootState) => state.orders);
 
   return (
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>{product.title}</div>
-      ))}
+    <div className="page">
+      <CategoryTitle
+        categoryName={CATEGORY.PRODUCTS}
+        categoryLength={products.length}
+      />
+
+      <div className="table__container">
+        <Table className="table">
+          <tbody>
+            {products.map((product) => (
+              <ProductItem key={product.id} product={product} orders={orders} />
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </div>
   );
 };
