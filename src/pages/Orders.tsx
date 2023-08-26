@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Table } from "react-bootstrap";
+import OrderItem from "../components/order/OrderItem";
+import OrderMenu from "../components/order/OrderMenu";
 import { RootState } from "../store";
 import { CATEGORY } from "../utils/consts";
-import { Table } from "react-bootstrap";
-import OrderItem from "../components/OrderItem";
+import { Order } from "../utils/types";
 
 const Orders: React.FC = () => {
   const { orders } = useSelector((state: RootState) => state.orders);
+
+  const [activeOrder, setActiveOrder] = React.useState<Order | null>(null);
 
   return (
     <div className="page">
@@ -14,13 +18,27 @@ const Orders: React.FC = () => {
         {CATEGORY.ORDERS} / {orders.length}
       </div>
 
-      <Table className="table">
-        <tbody>
-          {orders.map((order) => (
-            <OrderItem key={order.id} order={order} />
-          ))}
-        </tbody>
-      </Table>
+      <div className="page__content">
+        <Table className="tableData">
+          <tbody>
+            {orders.map((order) => (
+              <OrderItem
+                key={order.id}
+                order={order}
+                activeOrder={activeOrder}
+                setActiveOrder={setActiveOrder}
+              />
+            ))}
+          </tbody>
+        </Table>
+
+        {activeOrder && (
+          <OrderMenu
+            activeOrder={activeOrder}
+            products={activeOrder.products}
+          />
+        )}
+      </div>
     </div>
   );
 };

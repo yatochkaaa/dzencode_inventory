@@ -1,9 +1,10 @@
 @import './_vars.css';
 @import './header.css';
-@import './menu.css';
+@import './navigationMenu.css';
 @import './page.css';
 @import './select.css';
-@import './table.css';
+@import './tableData.css';
+@import './orderMenu.css';
 
 body {
   color: var(--main-text-color);

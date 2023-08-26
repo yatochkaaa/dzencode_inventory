@@ -46,7 +46,7 @@ const Products: React.FC = () => {
       </div>
 
       <div className="table__container">
-        <Table className="table">
+        <Table className="tableData" responsive>
           <tbody>
             {filteredProducts.map((product) => (
               <ProductItem key={product.id} product={product} orders={orders} />

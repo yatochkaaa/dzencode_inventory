@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Form, Navbar, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import TopMenu from "./TopMenu";
 
 const Header: React.FC = () => {

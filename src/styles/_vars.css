@@ -4,8 +4,8 @@
   --secondary-text-color: #98a4ac;
   --status-color: #d0dc3c;
   --bg-color: #f0f3f5;
-  --card-border-color: #dee2e6;
+  --table-border-color: #dee2e6;
 
   --border-radius: 6px;
-  --transition: all linear 300ms;
+  --transition: all ease-in 300ms;
 }

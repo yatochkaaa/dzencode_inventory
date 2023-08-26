@@ -1,151 +1,160 @@
-.table {
-  border-collapse: separate;
-  border-spacing: 0 20px;
+.tableData {
+  height: min-content;
   background: var(--bg-color);
   border: 0;
+  border-collapse: separate;
+  border-spacing: 0 20px;
 }
 
-.table td {
+.tableData td {
   color: var(--main-text-color);
   vertical-align: middle;
-  border-top: 1px solid var(--card-border-color);
-  border-bottom: 1px solid var(--card-border-color);
-  padding: 16px 24px;
+  border-top: 1px solid var(--table-border-color);
+  border-bottom: 1px solid var(--table-border-color);
+  padding: 16px 20px;
   white-space: nowrap;
 }
 
-.table td:first-child {
-  border-left: 1px solid var(--card-border-color);
+.tableData td:first-child {
+  border-left: 1px solid var(--table-border-color);
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }
 
-.table td:last-child {
-  border-right: 1px solid var(--card-border-color);
+.tableData td:last-child {
+  border-right: 1px solid var(--table-border-color);
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 }
 
-.table__container {
-  width: 100%;
-  overflow-x: auto;
-}
-
-
-.table__statusCircle {
+.tableData__statusCircle {
+  margin-left: 24px;
   height: 12px;
   width: 12px;
   background-color: var(--status-color);
   border-radius: 50%;
 }
 
-.table__statusCircle--used {
+.tableData__statusCircle--used {
   background-color: var(--main-text-color);
 }
 
-.table__image {
+.tableData__image {
   width: 56px;
   height: 48px;
   object-fit: contain;
 }
 
-.table__title {
+.tableData__title {
   font-size: 14px;
   line-height: 24px;
   font-weight: 400;
   text-decoration: underline solid var(--secondary-text-color);
 }
 
-.table__specification {
+.tableData__specification {
   font-size: 14px;
   line-height: 24px;
   font-weight: 400;
   color: var(--secondary-text-color);
 }
 
-.table__type {
+.tableData__type {
   font-size: 14px;
-  font-weight: 700;
 }
 
-.table__date {
+.tableData__condition {
+  color: var(--status-color);
+}
+
+.tableData__condition--used {
+  color: var(--main-text-color)
+}
+
+.tableData__date {
   position: relative;
   width: min-content;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.table__additionDate {
+.tableData__additionDate {
   position: absolute;
   top: -50%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--secondary-text-color);
 }
 
-.table__timeRange {
+.tableData__additionDate--active {
+  left: 0;
+  transform: translateX(0);
+}
+
+.tableData__timeRange {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   font-size: 14px;
 }
 
-.table__timeRangePrefix {
+.tableData__timeRangePrefix {
   margin-right: 4px;
   color: var(--secondary-text-color);;
 }
 
-.table__price {
+.tableData__price {
   position: relative;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-.table__additionPrice {
+.tableData__additionPrice {
   position: absolute;
   top: -50%;
   left: 0;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--secondary-text-color);
 }
 
-.table__currency {
+.tableData__currency {
   font-size: 10px;
 }
 
-.table__order {
+.tableData__order {
   width: max-content;
   max-width: 300px;
   white-space: normal;
 }
 
-.table__trash {
+.tableData__trash {
+  margin-left: 60px;
   border: 0;
   background: #fff;
   transition: var(--transition);
 }
 
-.table__trash:hover, .table__trash:active {
+.tableData__trash:hover {
   transform: scale(1.5);
 }
 
-.table__menu {
+.tableData__menu {
   background-color: transparent;
-  border: 1px solid var(--card-border-color);
+  border: 1px solid var(--table-border-color);
   border-radius: 50%;
   padding: 6px 11px;
   transition: var(--transition);
   margin-right: 16px;
 }
 
-.table__menu:hover {
+.tableData__menu:hover {
   transform: scale(1.2);
 }
 
-.table__productsAmount {
+.tableData__productsAmount {
   font-size: 24px;
   line-height: 28px;
 }
 
-.table__productsAmountTitle {
+.tableData__productsAmountTitle {
   font-size: 14px;
   color: var(--secondary-text-color);
 }

@@ -8,7 +8,7 @@ import { RootState } from "./store";
 import { fetchProductsAction, fetchOrdersAction } from "./store/actions";
 import AppRouter from "./components/AppRouter";
 import NavigationMenu from "./components/NavigationMenu";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
 import "./styles/styles.css";
 
 const App: React.FC = () => {
@@ -32,7 +32,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Header />
       <NavigationMenu />
-      <Container style={{ marginLeft: 200, padding: "60px 100px" }}>
+      <Container className="page__container">
         <AppRouter />
       </Container>
     </BrowserRouter>
