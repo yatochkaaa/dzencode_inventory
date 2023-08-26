@@ -13,7 +13,7 @@ interface Props {
   handleDeleteProductFromState: (productId: number) => void;
 }
 
-const DeleteOrderModal: React.FC<Props> = ({
+const DeleteOrderProductModal: React.FC<Props> = ({
   showModal,
   handleCloseModal,
   handleDeleteProductFromServer,
@@ -70,4 +70,4 @@ const DeleteOrderModal: React.FC<Props> = ({
   );
 };
 
-export default DeleteOrderModal;
+export default DeleteOrderProductModal;

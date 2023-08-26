@@ -10,7 +10,7 @@ import OrderMenu from "../components/order/OrderMenu";
 import { RootState } from "../store";
 import { CATEGORY } from "../utils/consts";
 import { Order, Product } from "../utils/types";
-import DeleteOrderModal from "../components/modals/DeleteOrderModal";
+import DeleteOrderProductModal from "../components/modals/DeleteOrderProductModal";
 
 const Orders: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -94,7 +94,7 @@ const Orders: React.FC = () => {
         )}
       </div>
 
-      <DeleteOrderModal
+      <DeleteOrderProductModal
         showModal={showModal}
         handleCloseModal={handleCloseModal}
         selectedProduct={selectedProduct}
