@@ -40,6 +40,8 @@ const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
     }
   };
 
+  const isProductsInOrder = () => order.products.length > 0;
+
   return (
     <tr>
       {!activeOrder && <td>{order.title}</td>}
@@ -79,14 +81,18 @@ const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
           <td>
             <div className="tableData__price">
               <div className="tableData__additionPrice">
-                {formattedPrice(getSumPrice(0))}{" "}
+                {isProductsInOrder() ? formattedPrice(getSumPrice(0)) : 0}{" "}
                 <span className="tableData__currency">
-                  {order.products[0].price[0].symbol}
+                  {isProductsInOrder()
+                    ? order.products[0].price[0].symbol
+                    : "USD"}
                 </span>
               </div>
-              {formattedPrice(getSumPrice(1))}{" "}
+              {isProductsInOrder() ? formattedPrice(getSumPrice(1)) : 0}{" "}
               <span className="tableData__currency">
-                {order.products[0].price[1].symbol}
+                {isProductsInOrder()
+                  ? order.products[0].price[1].symbol
+                  : "UAH"}
               </span>
             </div>
           </td>
