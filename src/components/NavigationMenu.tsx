@@ -9,41 +9,46 @@ const NavigationMenu: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Navbar
-      bg="light"
-      className="position-fixed left-0 z-1 shadow align-items-start"
-      style={{ height: "100vh", width: 200, left: 0, top: 0, paddingTop: 124 }}
-    >
+    <Navbar bg="light" className="navigationMenu shadow">
       <Container className="d-flex flex-column">
-        <div className="position-relative mb-5">
-          <Image className="menu__image" alt="avatar" src={avatar} />
+        <div className="navigationMenu__imageContainer">
+          <Image className="navigationMenu__image" alt="avatar" src={avatar} />
           <button
             onClick={() => navigate(ROUTE.SETTINGS)}
-            className="menu__imageButton shadow"
+            className="navigationMenu__imageButton shadow"
           >
             <GearFill fill="#586c7c" />
           </button>
         </div>
 
-        <Nav className="d-flex flex-column align-items-center text-uppercase fw-bold">
-          <Nav.Link onClick={() => navigate(ROUTE.ORDERS)} className="nav-link">
+        <Nav className="navigationMenu__nav flex-column">
+          <Nav.Link
+            onClick={() => navigate(ROUTE.ORDERS)}
+            className="navigationMenu__link"
+          >
             {CATEGORY.ORDERS}
           </Nav.Link>
-          <Nav.Link onClick={() => navigate(ROUTE.GROUPS)} className="nav-link">
+          <Nav.Link
+            onClick={() => navigate(ROUTE.GROUPS)}
+            className="navigationMenu__link"
+          >
             {CATEGORY.GROUPS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.PRODUCTS)}
-            className="nav-link"
+            className="navigationMenu__link"
           >
             {CATEGORY.PRODUCTS}
           </Nav.Link>
-          <Nav.Link onClick={() => navigate(ROUTE.USERS)} className="nav-link">
+          <Nav.Link
+            onClick={() => navigate(ROUTE.USERS)}
+            className="navigationMenu__link"
+          >
             {CATEGORY.USERS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.SETTINGS)}
-            className="nav-link"
+            className="navigationMenu__link"
           >
             {CATEGORY.SETTINGS}
           </Nav.Link>

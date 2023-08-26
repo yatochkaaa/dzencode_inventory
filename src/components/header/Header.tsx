@@ -7,13 +7,10 @@ import TopMenu from "./TopMenu";
 const Header: React.FC = () => {
   return (
     <Navbar bg="light" className="header shadow z-2">
-      <Container>
+      <Container className="header">
         <Row className="w-100 align-items-center">
           <Col xs={4} lg={3}>
-            <Navbar.Brand
-              className="header__brand"
-              href="./"
-            >
+            <Navbar.Brand className="header__brand" href="./">
               <img
                 alt=""
                 src={logo}

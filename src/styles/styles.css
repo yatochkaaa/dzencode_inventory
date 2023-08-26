@@ -5,17 +5,9 @@
 @import './select.css';
 @import './tableData.css';
 @import './orderMenu.css';
+@import './modal.css';
 
 body {
   color: var(--main-text-color);
   background-color: var(--bg-color);
-}
-
-.nav-link { 
-  border-bottom: 4px solid transparent;
-  transition: var(--transition);
-}
-
-.nav-link:hover {
-  border-color: var(--primary-color);
 }

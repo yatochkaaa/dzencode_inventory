@@ -6,6 +6,8 @@
   --bg-color: #f0f3f5;
   --table-border-color: #dee2e6;
 
+  --header-height: 80px;
+  --nav-menu-width: 200px;
   --border-radius: 6px;
   --transition: all ease-in 300ms;
 }

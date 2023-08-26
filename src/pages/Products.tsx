@@ -45,15 +45,13 @@ const Products: React.FC = () => {
         </div>
       </div>
 
-      <div className="table__container">
-        <Table className="tableData" responsive>
-          <tbody>
-            {filteredProducts.map((product) => (
-              <ProductItem key={product.id} product={product} orders={orders} />
-            ))}
-          </tbody>
-        </Table>
-      </div>
+      <Table className="tableData" responsive>
+        <tbody>
+          {filteredProducts.map((product) => (
+            <ProductItem key={product.id} product={product} orders={orders} />
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 };

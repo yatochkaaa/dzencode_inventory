@@ -18,8 +18,10 @@ const Orders: React.FC = () => {
         {CATEGORY.ORDERS} / {orders.length}
       </div>
 
-      <div className="page__content">
-        <Table className="tableData">
+      <div
+        className={`page__content ${activeOrder && "page__content--splitted"}`}
+      >
+        <Table className="tableData" responsive={activeOrder ? false : true}>
           <tbody>
             {orders.map((order) => (
               <OrderItem

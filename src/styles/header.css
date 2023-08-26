@@ -1,3 +1,7 @@
+.header {
+  height: var(--header-height);
+}
+
 .header__brand {
   display: flex;
   align-items: center;
