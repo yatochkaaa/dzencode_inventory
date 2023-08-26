@@ -1,5 +1,5 @@
 import React from "react";
-import { ListUl, Trash3Fill } from "react-bootstrap-icons";
+import { ChevronRight, ListUl, Trash3Fill } from "react-bootstrap-icons";
 import { Order } from "../../utils/types";
 import {
   formattedPrice,
@@ -14,6 +14,14 @@ interface Props {
 }
 
 const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
+  const handleOrderMenuClick = () => {
+    if (activeOrder && order.id === activeOrder.id) {
+      setActiveOrder(null);
+    } else {
+      setActiveOrder(order);
+    }
+  };
+
   const getSumPrice = (i: number) =>
     order.products.reduce((acc, cur) => acc + cur.price[i].value, 0);
 
@@ -38,10 +46,7 @@ const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
 
       <td>
         <div className="d-flex">
-          <button
-            className="tableData__menu"
-            onClick={() => setActiveOrder(order)}
-          >
+          <button className="tableData__menu" onClick={handleOrderMenuClick}>
             <ListUl width={24} height={24} stroke="#586c7c" />
           </button>
 
@@ -74,10 +79,15 @@ const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
           <td>
             <div className="tableData__price">
               <div className="tableData__additionPrice">
-                {formattedPrice(getSumPrice(0))} $
+                {formattedPrice(getSumPrice(0))}{" "}
+                <span className="tableData__currency">
+                  {order.products[0].price[0].symbol}
+                </span>
               </div>
               {formattedPrice(getSumPrice(1))}{" "}
-              <span className="tableData__currency">UAH</span>
+              <span className="tableData__currency">
+                {order.products[0].price[1].symbol}
+              </span>
             </div>
           </td>
 
@@ -88,6 +98,17 @@ const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {
           </td>
         </>
       )}
+
+      <td className="p-0">
+        {activeOrder && order.id === activeOrder.id && (
+          <button
+            onClick={() => setActiveOrder(null)}
+            className="tableData__arrow"
+          >
+            <ChevronRight strokeWidth={3} stroke="#fff" fill="#fff" />
+          </button>
+        )}
+      </td>
     </tr>
   );
 };

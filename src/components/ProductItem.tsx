@@ -52,7 +52,10 @@ const ProductItem: React.FC<Props> = ({ product, orders }) => {
       <td>
         <div className="tableData__price">
           <div className="tableData__additionPrice">
-            {formattedPrice(product.price[0].value)} $
+            {formattedPrice(product.price[0].value)}{" "}
+            <span className="tableData__currency">
+              {product.price[0].symbol}
+            </span>
           </div>
           {formattedPrice(product.price[1].value)}{" "}
           <span className="tableData__currency">{product.price[1].symbol}</span>
