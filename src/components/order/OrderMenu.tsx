@@ -1,15 +1,20 @@
 import React from "react";
-import { PlusCircleFill } from "react-bootstrap-icons";
+import { PlusCircleFill, X } from "react-bootstrap-icons";
 import OrderMenuItem from "./OrderMenuItem";
 import { Order, Product } from "../../utils/types";
 import { Table } from "react-bootstrap";
 
 interface Props {
   activeOrder: Order;
+  setActiveOrder: React.Dispatch<React.SetStateAction<Order | null>>;
   products: Product[];
 }
 
-const OrderMenu: React.FC<Props> = ({ activeOrder, products }) => {
+const OrderMenu: React.FC<Props> = ({
+  activeOrder,
+  setActiveOrder,
+  products,
+}) => {
   return (
     <div className="orderMenu">
       <div className="orderMenu__header">
@@ -22,6 +27,13 @@ const OrderMenu: React.FC<Props> = ({ activeOrder, products }) => {
             fill="#80b444"
           />
           Добавить продукт
+        </button> 
+
+        <button
+          onClick={() => setActiveOrder(null)}
+          className="orderMenu__cross shadow"
+        >
+          <X height={24} width={24} fill="#98a4ac" />
         </button>
       </div>
 

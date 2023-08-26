@@ -35,6 +35,7 @@ const Orders: React.FC = () => {
         {activeOrder && (
           <OrderMenu
             activeOrder={activeOrder}
+            setActiveOrder={setActiveOrder}
             products={activeOrder.products}
           />
         )}
