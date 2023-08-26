@@ -1,16 +1,66 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+
+import { deleteProductFromOrder } from "../store/actions";
+import { AppDispatch } from "../store";
 import OrderItem from "../components/order/OrderItem";
 import OrderMenu from "../components/order/OrderMenu";
 import { RootState } from "../store";
 import { CATEGORY } from "../utils/consts";
-import { Order } from "../utils/types";
+import { Order, Product } from "../utils/types";
+import DeleteOrderModal from "../components/modals/DeleteOrderModal";
 
 const Orders: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const { orders } = useSelector((state: RootState) => state.orders);
 
+  const [showModal, setShowModal] = React.useState(false);
   const [activeOrder, setActiveOrder] = React.useState<Order | null>(null);
+  const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(
+    null
+  );
+  const [currentProducts, setCurrentProducts] = React.useState<
+    Product[] | null
+  >(activeOrder ? activeOrder.products : null);
+
+  React.useEffect(() => {
+    if (activeOrder) {
+      setCurrentProducts(activeOrder?.products);
+    }
+  }, [activeOrder]);
+
+  const handleTrashClick = (product: Product) => {
+    setSelectedProduct(product);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null);
+    setShowModal(false);
+  };
+
+  const handleDeleteProductFromState = (productId: number) => {
+    if (!currentProducts) return;
+
+    const updatedProducts = currentProducts.filter(
+      (product) => product.id !== productId
+    );
+    setCurrentProducts(updatedProducts);
+  };
+
+  const handleDeleteProductFromServer = (productId: number) => {
+    if (activeOrder) {
+      dispatch(
+        deleteProductFromOrder({
+          orderId: activeOrder.id,
+          productId,
+        })
+      );
+      setShowModal(false);
+    }
+  };
 
   return (
     <div className="page">
@@ -37,11 +87,20 @@ const Orders: React.FC = () => {
         {activeOrder && (
           <OrderMenu
             activeOrder={activeOrder}
+            currentProducts={currentProducts}
             setActiveOrder={setActiveOrder}
-            products={activeOrder.products}
+            handleTrashClick={handleTrashClick}
           />
         )}
       </div>
+
+      <DeleteOrderModal
+        showModal={showModal}
+        handleCloseModal={handleCloseModal}
+        selectedProduct={selectedProduct}
+        handleDeleteProductFromServer={handleDeleteProductFromServer}
+        handleDeleteProductFromState={handleDeleteProductFromState}
+      />
     </div>
   );
 };

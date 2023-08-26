@@ -1,42 +1,24 @@
 import React from "react";
 import { PlusCircleFill } from "react-bootstrap-icons";
 import { Table } from "react-bootstrap";
+
 import OrderMenuItem from "./OrderMenuItem";
 import { Order, Product } from "../../utils/types";
-import DeleteOrderModal from "../modals/DeleteOrderModal";
 import CloseButton from "../buttons/CloseButton";
 
 interface Props {
   activeOrder: Order;
   setActiveOrder: React.Dispatch<React.SetStateAction<Order | null>>;
-  products: Product[];
+  handleTrashClick: (product: Product) => void;
+  currentProducts: Product[] | null;
 }
 
 const OrderMenu: React.FC<Props> = ({
   activeOrder,
   setActiveOrder,
-  products,
+  handleTrashClick,
+  currentProducts,
 }) => {
-  const [showModal, setShowModal] = React.useState(false);
-  const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(
-    null
-  );
-
-  const handleTrashClick = (product: Product) => {
-    setSelectedProduct(product);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
-    setShowModal(false);
-  };
-
-  const handleDeleteProduct = () => {
-    // Delete product logic
-    setShowModal(false);
-  };
-
   return (
     <div className="orderMenu">
       <div className="orderMenu__header">
@@ -56,21 +38,15 @@ const OrderMenu: React.FC<Props> = ({
 
       <Table className="orderMenu__list">
         <tbody>
-          {products.map((product) => (
-            <OrderMenuItem
-              product={product}
-              handleTrashClick={() => handleTrashClick(product)}
-            />
-          ))}
+          {currentProducts &&
+            currentProducts.map((product) => (
+              <OrderMenuItem
+                product={product}
+                handleTrashClick={() => handleTrashClick(product)}
+              />
+            ))}
         </tbody>
       </Table>
-
-      <DeleteOrderModal
-        showModal={showModal}
-        handleCloseModal={handleCloseModal}
-        selectedProduct={selectedProduct}
-        handleDeleteProduct={handleDeleteProduct}
-      />
     </div>
   );
 };

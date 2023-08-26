@@ -45,7 +45,12 @@ const OrderMenuItem: React.FC<Props> = ({ product, handleTrashClick }) => {
           </td>
 
           <td>
-            <button onClick={handleTrashClick} className="tableData__trash">
+            <button
+              onClick={() => {
+                handleTrashClick();
+              }}
+              className="tableData__trash"
+            >
               <Trash3Fill fill="#586c7c" />
             </button>
           </td>
