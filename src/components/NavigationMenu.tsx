@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GearFill } from "react-bootstrap-icons";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import avatar from "../images/avatar.png";
@@ -7,6 +7,10 @@ import { ROUTE, CATEGORY } from "../utils/consts";
 
 const NavigationMenu: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActiveLink = (route: ROUTE) =>
+    location.pathname === route && "navigationMenu__link--active";
 
   return (
     <Navbar bg="light" className="navigationMenu shadow">
@@ -24,31 +28,31 @@ const NavigationMenu: React.FC = () => {
         <Nav className="navigationMenu__nav flex-column">
           <Nav.Link
             onClick={() => navigate(ROUTE.ORDERS)}
-            className="navigationMenu__link"
+            className={`navigationMenu__link ${isActiveLink(ROUTE.ORDERS)}`}
           >
             {CATEGORY.ORDERS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.GROUPS)}
-            className="navigationMenu__link"
+            className={`navigationMenu__link ${isActiveLink(ROUTE.GROUPS)}`}
           >
             {CATEGORY.GROUPS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.PRODUCTS)}
-            className="navigationMenu__link"
+            className={`navigationMenu__link ${isActiveLink(ROUTE.PRODUCTS)}`}
           >
             {CATEGORY.PRODUCTS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.USERS)}
-            className="navigationMenu__link"
+            className={`navigationMenu__link ${isActiveLink(ROUTE.USERS)}`}
           >
             {CATEGORY.USERS}
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate(ROUTE.SETTINGS)}
-            className="navigationMenu__link"
+            className={`navigationMenu__link ${isActiveLink(ROUTE.SETTINGS)}`}
           >
             {CATEGORY.SETTINGS}
           </Nav.Link>

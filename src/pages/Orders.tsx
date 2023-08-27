@@ -11,7 +11,7 @@ import { RootState } from "../store";
 import { CATEGORY } from "../utils/consts";
 import { Order, Product } from "../utils/types";
 import DeleteOrderProductModal from "../components/modals/DeleteOrderProductModal";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Orders: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -77,30 +77,19 @@ const Orders: React.FC = () => {
       <div
         className={`page__content ${activeOrder && "page__content--splitted"}`}
       >
-        <AnimatePresence>
-          <motion.div
-            key="orderMenu"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="tableDataContainer"
-          >
-            <Table className="tableData" responsive={false}>
-              <tbody>
-                {orders.map((order) => (
-                  <OrderItem
-                    key={order.id}
-                    order={order}
-                    activeOrder={activeOrder}
-                    setActiveOrder={setActiveOrder}
-                    handleDeleteOrder={handleDeleteOrder}
-                  />
-                ))}
-              </tbody>
-            </Table>
-          </motion.div>
-        </AnimatePresence>
+        <Table className="tableData" responsive={false}>
+          <tbody>
+            {orders.map((order) => (
+              <OrderItem
+                key={order.id}
+                order={order}
+                activeOrder={activeOrder}
+                setActiveOrder={setActiveOrder}
+                handleDeleteOrder={handleDeleteOrder}
+              />
+            ))}
+          </tbody>
+        </Table>
 
         {activeOrder && (
           <motion.div

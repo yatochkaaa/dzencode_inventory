@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { routes } from "../routes";
 import { ROUTE } from "../utils/consts";
@@ -13,13 +14,13 @@ const AppRouter: React.FC = () => {
           key={path}
           path={path}
           element={
-            <AnimatePresence mode='wait'>
+            <AnimatePresence mode={"wait"}>
               <motion.div
-                key={location.key} // This is important
+                key={location.key}
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 50 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3 }}
               >
                 <Component />
               </motion.div>

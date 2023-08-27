@@ -50,6 +50,6 @@
   transition: var(--transition);
 }
 
-.navigationMenu__link:hover {
+.navigationMenu__link--active { 
   border-color: var(--primary-color);
 }
