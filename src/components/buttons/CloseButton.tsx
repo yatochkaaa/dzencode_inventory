@@ -7,7 +7,7 @@ interface Props {
 
 const CloseButton: React.FC<Props> = ({ onClose }) => {
   return (
-    <button onClick={onClose} className="orderMenu__cross shadow">
+    <button onClick={onClose} className="button__cross shadow">
       <X height={24} width={24} fill="#98a4ac" />
     </button>
   );

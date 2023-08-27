@@ -16,6 +16,13 @@ export const fetchOrdersAction = (dispatch: Dispatch) => {
   dispatch(setOrders(orders));
 };
 
+export const deleteOrder = createAsyncThunk(
+  "orders/deleteOrder",
+  (orderId: number) => {
+    return orderId;
+  }
+);
+
 export const deleteProductFromOrder = createAsyncThunk(
   "orders/deleteProductFromOrder",
   ({ orderId, productId }: DeleteProductFromOrderPayload) => {

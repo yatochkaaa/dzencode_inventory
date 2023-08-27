@@ -1,0 +1,15 @@
+.button__cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 9px;
+  border: 0;
+  background-color: #fff;
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.button__cross:hover {
+  transform: translate(50%, -50%) scale(1.2);
+}

@@ -11,6 +11,7 @@ interface Props {
   order: Order;
   activeOrder: Order | null;
   setActiveOrder: React.Dispatch<React.SetStateAction<Order | null>>;
+  handleDeleteOrder: (orderId: number) => void;
 }
 
 const OrderItem: React.FC<Props> = ({ order, activeOrder, setActiveOrder }) => {

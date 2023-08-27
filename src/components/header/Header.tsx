@@ -23,7 +23,11 @@ const Header: React.FC = () => {
           </Col>
 
           <Col xs={6} lg={3}>
-            <Form.Control type="text" placeholder="Поиск" className="h-50" />
+            <Form.Control
+              type="text"
+              placeholder="Поиск"
+              className="h-50"
+            />
           </Col>
 
           <Col xs={2} lg={6}>

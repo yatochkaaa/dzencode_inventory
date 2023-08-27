@@ -9,14 +9,14 @@ import CloseButton from "../buttons/CloseButton";
 interface Props {
   activeOrder: Order;
   setActiveOrder: React.Dispatch<React.SetStateAction<Order | null>>;
-  handleTrashClick: (product: Product) => void;
+  handleShowDeleteOrderProductModal: (product: Product) => void;
   currentProducts: Product[] | null;
 }
 
 const OrderMenu: React.FC<Props> = ({
   activeOrder,
   setActiveOrder,
-  handleTrashClick,
+  handleShowDeleteOrderProductModal,
   currentProducts,
 }) => {
   return (
@@ -42,7 +42,7 @@ const OrderMenu: React.FC<Props> = ({
             currentProducts.map((product) => (
               <OrderMenuItem
                 product={product}
-                handleTrashClick={() => handleTrashClick(product)}
+                handleShowDeleteOrderProductModal={() => handleShowDeleteOrderProductModal(product)}
               />
             ))}
         </tbody>

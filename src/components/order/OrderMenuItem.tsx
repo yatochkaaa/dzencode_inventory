@@ -5,10 +5,10 @@ import { Product } from "../../utils/types";
 
 interface Props {
   product: Product;
-  handleTrashClick?: () => void;
+  handleShowDeleteOrderProductModal?: () => void;
 }
 
-const OrderMenuItem: React.FC<Props> = ({ product, handleTrashClick }) => {
+const OrderMenuItem: React.FC<Props> = ({ product, handleShowDeleteOrderProductModal }) => {
   return (
     <tr>
       <td>
@@ -32,7 +32,7 @@ const OrderMenuItem: React.FC<Props> = ({ product, handleTrashClick }) => {
         </div>
       </td>
 
-      {handleTrashClick && (
+      {handleShowDeleteOrderProductModal && (
         <>
           <td>
             <div
@@ -46,9 +46,7 @@ const OrderMenuItem: React.FC<Props> = ({ product, handleTrashClick }) => {
 
           <td>
             <button
-              onClick={() => {
-                handleTrashClick();
-              }}
+              onClick={handleShowDeleteOrderProductModal}
               className="tableData__trash"
             >
               <Trash3Fill fill="#586c7c" />

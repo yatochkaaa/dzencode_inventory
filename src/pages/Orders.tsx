@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
-import { deleteProductFromOrder } from "../store/actions";
+import { deleteOrder, deleteProductFromOrder } from "../store/actions";
 import { AppDispatch } from "../store";
 import OrderItem from "../components/order/OrderItem";
 import OrderMenu from "../components/order/OrderMenu";
@@ -31,7 +31,11 @@ const Orders: React.FC = () => {
     }
   }, [activeOrder]);
 
-  const handleTrashClick = (product: Product) => {
+  const handleDeleteOrder = (orderId: number) => {
+    dispatch(deleteOrder(orderId));
+  };
+
+  const handleShowDeleteOrderProductModal = (product: Product) => {
     setSelectedProduct(product);
     setShowModal(true);
   };
@@ -50,7 +54,7 @@ const Orders: React.FC = () => {
     setCurrentProducts(updatedProducts);
   };
 
-  const handleDeleteProductFromServer = (productId: number) => {
+  const handleDeleteProduct = (productId: number) => {
     if (activeOrder) {
       dispatch(
         deleteProductFromOrder({
@@ -58,6 +62,7 @@ const Orders: React.FC = () => {
           productId,
         })
       );
+      handleDeleteProductFromState(productId)
       setShowModal(false);
     }
   };
@@ -79,6 +84,7 @@ const Orders: React.FC = () => {
                 order={order}
                 activeOrder={activeOrder}
                 setActiveOrder={setActiveOrder}
+                handleDeleteOrder={handleDeleteOrder}
               />
             ))}
           </tbody>
@@ -89,7 +95,7 @@ const Orders: React.FC = () => {
             activeOrder={activeOrder}
             currentProducts={currentProducts}
             setActiveOrder={setActiveOrder}
-            handleTrashClick={handleTrashClick}
+            handleShowDeleteOrderProductModal={handleShowDeleteOrderProductModal}
           />
         )}
       </div>
@@ -98,8 +104,7 @@ const Orders: React.FC = () => {
         showModal={showModal}
         handleCloseModal={handleCloseModal}
         selectedProduct={selectedProduct}
-        handleDeleteProductFromServer={handleDeleteProductFromServer}
-        handleDeleteProductFromState={handleDeleteProductFromState}
+        onDelete={handleDeleteProduct}
       />
     </div>
   );

@@ -9,16 +9,14 @@ interface Props {
   showModal: boolean;
   handleCloseModal: () => void;
   selectedProduct: Product | null;
-  handleDeleteProductFromServer: (productId: number) => void;
-  handleDeleteProductFromState: (productId: number) => void;
+  onDelete: (productId: number) => void;
 }
 
 const DeleteOrderProductModal: React.FC<Props> = ({
   showModal,
   handleCloseModal,
-  handleDeleteProductFromServer,
+  onDelete,
   selectedProduct,
-  handleDeleteProductFromState,
 }) => {
   return (
     <Modal
@@ -55,10 +53,7 @@ const DeleteOrderProductModal: React.FC<Props> = ({
             <Button
               className="modal__deleteButton"
               variant="outline-danger"
-              onClick={() => {
-                handleDeleteProductFromState(selectedProduct.id);
-                handleDeleteProductFromServer(selectedProduct.id);
-              }}
+              onClick={() => onDelete(selectedProduct.id)}
             >
               <Trash3Fill className="modal__trash" />
               Удалить

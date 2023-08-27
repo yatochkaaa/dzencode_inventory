@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Order } from "../utils/types";
 import {
+  deleteOrder,
   deleteProductFromOrder,
   DeleteProductFromOrderPayload,
 } from "./actions";
@@ -33,6 +34,14 @@ export const ordersSlice = createSlice({
             (product) => product.id !== productId
           );
         }
+      }
+    );
+    builder.addCase(
+      deleteOrder.fulfilled,
+      (state, action: PayloadAction<number>) => {
+        state.orders = state.orders.filter(
+          (order) => order.id !== action.payload
+        );
       }
     );
   },
