@@ -1,6 +1,7 @@
 import React from "react";
 import { PlusCircleFill } from "react-bootstrap-icons";
 import { Table } from "react-bootstrap";
+import { AnimatePresence, motion } from "framer-motion";
 
 import OrderMenuItem from "./OrderMenuItem";
 import { Order, Product } from "../../utils/types";
@@ -38,13 +39,25 @@ const OrderMenu: React.FC<Props> = ({
 
       <Table className="orderMenu__list">
         <tbody>
-          {currentProducts &&
-            currentProducts.map((product) => (
-              <OrderMenuItem
-                product={product}
-                handleShowDeleteOrderProductModal={() => handleShowDeleteOrderProductModal(product)}
-              />
-            ))}
+          <AnimatePresence>
+            {currentProducts &&
+              currentProducts.map((product) => (
+                <motion.tr
+                  key={product.id}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                >
+                  <OrderMenuItem
+                    key={product.id}
+                    product={product}
+                    handleShowDeleteOrderProductModal={() =>
+                      handleShowDeleteOrderProductModal(product)
+                    }
+                  />
+                </motion.tr>
+              ))}
+          </AnimatePresence>
         </tbody>
       </Table>
     </div>

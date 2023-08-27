@@ -8,9 +8,12 @@ interface Props {
   handleShowDeleteOrderProductModal?: () => void;
 }
 
-const OrderMenuItem: React.FC<Props> = ({ product, handleShowDeleteOrderProductModal }) => {
+const OrderMenuItem: React.FC<Props> = ({
+  product,
+  handleShowDeleteOrderProductModal,
+}) => {
   return (
-    <tr>
+    <>
       <td>
         <div
           className={`tableData__statusCircle ${
@@ -54,7 +57,7 @@ const OrderMenuItem: React.FC<Props> = ({ product, handleShowDeleteOrderProductM
           </td>
         </>
       )}
-    </tr>
+    </>
   );
 };
 
