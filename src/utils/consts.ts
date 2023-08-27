@@ -5,3 +5,11 @@ export enum ROUTE {
   USERS = "/users",
   SETTINGS = "/settings",
 }
+
+export enum CATEGORY {
+  ORDERS = "Приходы",
+  GROUPS = "Группы",
+  PRODUCTS = "Продукты",
+  USERS = "Пользователи",
+  SETTINGS = "Настройки",
+}

@@ -1,19 +1,16 @@
 import React from "react";
 import { Col, Container, Form, Navbar, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import TopMenu from "./TopMenu";
 
 const Header: React.FC = () => {
   return (
-    <Navbar bg="light" className="shadow z-2">
-      <Container>
+    <Navbar bg="light" className="header shadow z-2">
+      <Container className="header">
         <Row className="w-100 align-items-center">
           <Col xs={4} lg={3}>
-            <Navbar.Brand
-              className="d-flex align-items-center text-uppercase text-success fw-bold"
-              href="./"
-            >
+            <Navbar.Brand className="header__brand" href="./">
               <img
                 alt=""
                 src={logo}
@@ -26,7 +23,11 @@ const Header: React.FC = () => {
           </Col>
 
           <Col xs={6} lg={3}>
-            <Form.Control type="text" placeholder="Поиск" className="h-50" />
+            <Form.Control
+              type="text"
+              placeholder="Поиск"
+              className="h-50"
+            />
           </Col>
 
           <Col xs={2} lg={6}>

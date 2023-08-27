@@ -19,7 +19,7 @@ export const routes = [
     Component: Users,
   },
   {
-    path: ROUTE.USERS,
+    path: ROUTE.PRODUCTS,
     Component: Products,
   },
   {

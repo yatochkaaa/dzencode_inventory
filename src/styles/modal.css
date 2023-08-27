@@ -1,0 +1,52 @@
+.modal__сustom {
+  margin-top: calc(50vh - var(--header-height));
+  margin-left: calc(45vw - var(--nav-menu-width));
+  max-width: 40%;
+}
+
+.modal__сustom .table {
+  margin: 0;
+}
+
+.modal__header {
+  padding: 24px 36px;
+}
+
+.modal__product {
+  padding: 0;
+}
+
+.modal__product .table {
+  vertical-align: middle;
+}
+
+.modal__footer {
+  height: 100px;
+  background: var(--primary-color);
+}
+
+.modal__cancelButton {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 12px 24px;
+}
+
+.modal__deleteButton {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 36px;
+  border: 0;
+  background: #fff;
+  border-radius: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal__trash {
+  margin-right: 8px;
+}

@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Groups: React.FC = () => {
-  return (
-    <div>Groups</div>
-  );
-}
+  return <div>Группы</div>;
+};
 
 export default Groups;
