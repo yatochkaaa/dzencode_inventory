@@ -62,7 +62,7 @@ const Orders: React.FC = () => {
           productId,
         })
       );
-      handleDeleteProductFromState(productId)
+      handleDeleteProductFromState(productId);
       setShowModal(false);
     }
   };
@@ -95,7 +95,9 @@ const Orders: React.FC = () => {
             activeOrder={activeOrder}
             currentProducts={currentProducts}
             setActiveOrder={setActiveOrder}
-            handleShowDeleteOrderProductModal={handleShowDeleteOrderProductModal}
+            handleShowDeleteOrderProductModal={
+              handleShowDeleteOrderProductModal
+            }
           />
         )}
       </div>
