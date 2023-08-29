@@ -15,11 +15,11 @@ Follow these steps to clone and run the application:
 1. Clone the repositories into a single directory:
 
 `git clone https://github.com/yatochkaaa/dzencode_inventory-server.git`  
-`git clone https://github.com/yatochkaaa/dzencode_inventory.git`
+`git clone https://github.com/yatochkaaa/dzencode_inventory-client.git`
 
 2. Open a terminal and navigate to the dzencode_inventory directory:
 
-`cd dzencode_inventory`
+`cd dzencode_inventory-client`
 
 3. Start the application using Docker Compose:
 
