@@ -10,9 +10,12 @@ const Header: React.FC = () => {
       <Container className="header">
         <Row className="w-100 align-items-center">
           <Col xs={4} lg={3}>
-            <Navbar.Brand className="header__brand" href="./">
+            <Navbar.Brand
+              className="header__brand d-flex align-items-center"
+              href="/"
+            >
               <img
-                alt=""
+                alt="logo"
                 src={logo}
                 width="50"
                 height="50"
@@ -23,11 +26,7 @@ const Header: React.FC = () => {
           </Col>
 
           <Col xs={6} lg={3}>
-            <Form.Control
-              type="text"
-              placeholder="Поиск"
-              className="h-50"
-            />
+            <Form.Control type="text" placeholder="Поиск" className="h-50" />
           </Col>
 
           <Col xs={2} lg={6}>

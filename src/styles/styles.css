@@ -1,12 +1,12 @@
 @import './_vars.css';
-@import './button.css';
-@import './header.css';
-@import './navigationMenu.css';
-@import './page.css';
-@import './select.css';
-@import './tableData.css';
-@import './orderMenu.css';
 @import './modal.css';
+@import './orderMenu.css';
+@import './tableData.css';
+@import './page.css';
+@import './navigationMenu.css';
+@import './header.css';
+@import './select.css';
+@import './button.css';
 
 body {
   color: var(--main-text-color);
