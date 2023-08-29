@@ -1,43 +1,38 @@
-# Getting Started with Create React App
+# Inventory Management App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the client and server components of the Inventory Management App.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+To run this application, you'll need the following tools installed on your system:
 
-### Сначала склонируйте репозитории на свою машину:
+- [Docker](https://www.docker.com/get-started/)
 
-git clone https://github.com/yatochkaaa/dzencode_inventory-server.git
-git clone https://github.com/yatochkaaa/dzencode_inventory.git
+## Getting Started
 
-### `npm test`
+Follow these steps to clone and run the application:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repositories into a single directory:
 
-### `npm run build`
+`git clone https://github.com/yatochkaaa/dzencode_inventory-server.git`  
+`git clone https://github.com/yatochkaaa/dzencode_inventory.git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Open a terminal and navigate to the dzencode_inventory directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`cd dzencode_inventory`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the application using Docker Compose:
 
-### `npm run eject`
+`docker-compose up`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This command will build and run the containers necessary for both the client and the server components. Make sure Docker is running on your machine before executing this command.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Once the containers are up and running, open your web browser and access the application at http://localhost.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Stopping the Application
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To stop the application and terminate the Docker containers, press Ctrl+C in the terminal where the docker-compose up command was executed. This will gracefully shut down the containers.
 
-## Learn More
+## Notes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The client application will be available at http://localhost, and the server will be accessible at http://localhost:3001.
