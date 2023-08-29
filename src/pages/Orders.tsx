@@ -11,26 +11,25 @@ import { RootState } from "../store";
 import { CATEGORY } from "../utils/consts";
 import { Order, Product } from "../utils/types";
 import DeleteOrderProductModal from "../components/modals/DeleteOrderProductModal";
-import { motion } from "framer-motion";
 
 const Orders: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { orders } = useSelector((state: RootState) => state.orders);
 
   const [showModal, setShowModal] = React.useState(false);
-  const [activeOrder, setActiveOrder] = React.useState<Order | null>(null);
+  const [selectedOrder, setSelectedOrder] = React.useState<Order | null>(null);
   const [selectedProduct, setSelectedProduct] = React.useState<Product | null>(
     null
   );
   const [currentProducts, setCurrentProducts] = React.useState<
     Product[] | null
-  >(activeOrder ? activeOrder.products : null);
+  >(selectedOrder ? selectedOrder.products : null);
 
   React.useEffect(() => {
-    if (activeOrder) {
-      setCurrentProducts(activeOrder?.products);
+    if (selectedOrder) {
+      setCurrentProducts(selectedOrder?.products);
     }
-  }, [activeOrder]);
+  }, [selectedOrder]);
 
   const handleDeleteOrder = (orderId: number) => {
     dispatch(deleteOrder(orderId));
@@ -56,10 +55,10 @@ const Orders: React.FC = () => {
   };
 
   const handleDeleteProduct = (productId: number) => {
-    if (activeOrder) {
+    if (selectedOrder) {
       dispatch(
         deleteProductFromOrder({
-          orderId: activeOrder.id,
+          orderId: selectedOrder.id,
           productId,
         })
       );
@@ -75,41 +74,35 @@ const Orders: React.FC = () => {
       </div>
 
       <div
-        className={`page__content ${activeOrder && "page__content--splitted"}`}
+        className={`page__content ${
+          selectedOrder && "page__content--splitted"
+        }`}
       >
         <Table className="tableData" responsive={false}>
           <tbody>
-            {orders.map((order) => (
-              <OrderItem
-                key={order.id}
-                order={order}
-                activeOrder={activeOrder}
-                setActiveOrder={setActiveOrder}
-                handleDeleteOrder={handleDeleteOrder}
-              />
-            ))}
+              {orders.map((order) => (
+                <OrderItem
+                  key={order.id}
+                  order={order}
+                  activeOrder={selectedOrder}
+                  setActiveOrder={setSelectedOrder}
+                  handleDeleteOrder={handleDeleteOrder}
+                />
+              ))}
           </tbody>
         </Table>
 
-        {activeOrder && (
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <OrderMenu
-              activeOrder={activeOrder}
-              currentProducts={currentProducts}
-              setActiveOrder={setActiveOrder}
-              handleShowDeleteOrderProductModal={
-                handleShowDeleteOrderProductModal
-              }
-            />
-          </motion.div>
+        {selectedOrder && (
+          <OrderMenu
+            selectedOrder={selectedOrder}
+            currentProducts={currentProducts}
+            setSelectedOrder={setSelectedOrder}
+            handleShowDeleteOrderProductModal={
+              handleShowDeleteOrderProductModal
+            }
+          />
         )}
       </div>
-
       <DeleteOrderProductModal
         showModal={showModal}
         handleCloseModal={handleCloseModal}

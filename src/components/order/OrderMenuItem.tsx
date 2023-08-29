@@ -13,7 +13,7 @@ const OrderMenuItem: React.FC<Props> = ({
   handleShowDeleteOrderProductModal,
 }) => {
   return (
-    <>
+    <tr>
       <td>
         <div
           className={`tableData__statusCircle ${
@@ -57,7 +57,7 @@ const OrderMenuItem: React.FC<Props> = ({
           </td>
         </>
       )}
-    </>
+    </tr>
   );
 };
 
